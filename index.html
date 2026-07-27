@@ -62,29 +62,34 @@
 <body class="text-slate-800 antialiased min-h-screen flex flex-col justify-between">
 
     <!-- HERO HEADER -->
-    <header class="bg-gradient-to-r from-ocean-700 via-ocean-600 to-teal-500 text-white shadow-md">
-        <div class="max-w-5xl mx-auto px-4 py-6 sm:py-8">
+    <header class="relative bg-gradient-to-r from-ocean-800 via-ocean-700 to-teal-600 text-white shadow-lg overflow-hidden">
+        <!-- Hero Background Image Overlay -->
+        <div class="absolute inset-0 z-0 opacity-30 mix-blend-overlay">
+            <img src="images/miyako_hero_hibiscus.png" alt="宮古島のエメラルドブルーの海とハイビスカス" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10 max-w-5xl mx-auto px-4 py-6 sm:py-8">
             <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
                 <div>
-                    <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold mb-2">
-                        <i class="fa-solid fa-umbrella-beach"></i> 宮古島・来間島 リゾートステイ 2026
+                    <div class="inline-flex items-center gap-2 bg-white/25 backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-semibold mb-2.5 border border-white/30 shadow-sm">
+                        <i class="fa-solid fa-umbrella-beach text-amber-300"></i> 宮古島・来間島 リゾートステイ 2026
                     </div>
-                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight">
-                        宮古島 旅のしおり 🌺
+                    <h1 class="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight drop-shadow-sm flex items-center gap-3">
+                        <span>宮古島 旅のしおり</span>
+                        <span class="text-2xl sm:text-3xl">🌺</span>
                     </h1>
                     <p class="text-xs sm:text-sm text-ocean-100 mt-1 flex items-center gap-3 flex-wrap">
-                        <span><i class="fa-regular fa-calendar"></i> 2026年8月8日(土) 〜 8月12日(水) 【4泊5日】</span>
-                        <span><i class="fa-solid fa-hotel"></i> 宮古島来間リゾート シーウッドホテル</span>
+                        <span><i class="fa-regular fa-calendar text-amber-300"></i> 2026年8月8日(土) 〜 8月12日(水) 【4泊5日】</span>
+                        <span><i class="fa-solid fa-hotel text-amber-300"></i> 宮古島来間リゾート シーウッドホテル</span>
                     </p>
                 </div>
                 <!-- Flight Quick Badges -->
-                <div class="bg-white/10 backdrop-blur-md border border-white/20 p-3 rounded-xl text-xs space-y-1 shrink-0">
+                <div class="bg-slate-900/40 backdrop-blur-md border border-white/20 p-3.5 rounded-xl text-xs space-y-1.5 shrink-0 shadow-md">
                     <div class="flex items-center justify-between gap-3">
-                        <span class="text-ocean-100 font-semibold">往路 (ANA 87):</span>
+                        <span class="text-ocean-100 font-semibold"><i class="fa-solid fa-plane-departure text-sky-300 mr-1"></i>往路 (ANA 87):</span>
                         <span class="font-bold">羽田 12:00 ➔ 宮古 15:00</span>
                     </div>
                     <div class="flex items-center justify-between gap-3">
-                        <span class="text-ocean-100 font-semibold">復路 (ANA 88):</span>
+                        <span class="text-ocean-100 font-semibold"><i class="fa-solid fa-plane-arrival text-rose-300 mr-1"></i>復路 (ANA 88):</span>
                         <span class="font-bold">宮古 16:05 ➔ 羽田 18:45</span>
                     </div>
                 </div>
@@ -145,7 +150,22 @@
 
         <!-- TAB 1: ITINERARY CONTENT -->
         <section id="tab-itinerary" class="space-y-4">
-            <div class="flex items-center justify-between">
+            <!-- Resort Accommodation Feature Banner -->
+            <div class="relative rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-900 group">
+                <img src="images/seawood_resort.png" alt="宮古島来間リゾート シーウッドホテル" class="w-full h-44 sm:h-52 object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/30 to-transparent flex flex-col justify-end p-4 sm:p-5 text-white">
+                    <div class="inline-flex items-center gap-1.5 bg-emerald-500/90 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full w-fit mb-1 backdrop-blur-xs">
+                        <i class="fa-solid fa-star"></i> 宿泊拠点・4泊5日連泊
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold">宮古島来間リゾート シーウッドホテル</h3>
+                    <p class="text-xs text-slate-200 mt-0.5 flex items-center gap-3">
+                        <span><i class="fa-solid fa-location-dot text-rose-400"></i> 沖縄県宮古島市下地来間484-7</span>
+                        <span><i class="fa-solid fa-water text-sky-400"></i> プライベートプール＆絶景オーシャンビュー</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-1">
                 <h2 class="font-bold text-slate-800 text-base sm:text-lg flex items-center gap-2">
                     <i class="fa-solid fa-clock text-ocean-600"></i>
                     4泊5日 詳細タイムスケジュール
@@ -395,7 +415,19 @@
 
         <!-- TAB 2: GOURMET DIRECTORY CONTENT -->
         <section id="tab-gourmet" class="space-y-4 hidden">
-            <div class="flex items-center justify-between">
+            <!-- Gourmet Feature Banner -->
+            <div class="relative rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-900 group">
+                <img src="images/tropical_gourmet.png" alt="宮古島絶景グルメ＆トロピカルスイーツ" class="w-full h-44 sm:h-52 object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex flex-col justify-end p-4 sm:p-5 text-white">
+                    <div class="inline-flex items-center gap-1.5 bg-rose-500/90 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full w-fit mb-1 backdrop-blur-xs">
+                        <i class="fa-solid fa-utensils"></i> 宮古牛・マンゴー・オーシャンビューカフェ
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold">島グルメ＆南国カフェガイド</h3>
+                    <p class="text-xs text-slate-200 mt-0.5">宮古島特産の宮古牛バーガー、旬のマンゴーかき氷、新鮮な海鮮寿司まで完全網羅</p>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-between pt-1">
                 <h2 class="font-bold text-slate-800 text-base sm:text-lg flex items-center gap-2">
                     <i class="fa-solid fa-utensils text-rose-500"></i>
                     立ち寄りグルメ＆スポット一覧
@@ -508,7 +540,19 @@
 
         <!-- TAB 3: ACCESS & PEAK SEASON TIPS -->
         <section id="tab-access" class="space-y-4 hidden">
-            <h2 class="font-bold text-slate-800 text-base sm:text-lg flex items-center gap-2">
+            <!-- Drive Feature Banner -->
+            <div class="relative rounded-2xl overflow-hidden shadow-md border border-slate-200 bg-slate-900 group">
+                <img src="images/miyako_bridge_drive.png" alt="伊良部大橋・池間大橋・来間大橋のエメラルドグリーン海道ドライブ" class="w-full h-44 sm:h-52 object-cover opacity-85 group-hover:scale-105 transition-transform duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent flex flex-col justify-end p-4 sm:p-5 text-white">
+                    <div class="inline-flex items-center gap-1.5 bg-sky-500/90 text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full w-fit mb-1 backdrop-blur-xs">
+                        <i class="fa-solid fa-car"></i> 3大橋絶景ドライブコース
+                    </div>
+                    <h3 class="text-lg sm:text-xl font-bold">宮古諸島 絶景海道＆アクセスナビ</h3>
+                    <p class="text-xs text-slate-200 mt-0.5">来間大橋・伊良部大橋・池間大橋を巡る快適ドライブとお盆最盛期の空港アクセス混雑対策</p>
+                </div>
+            </div>
+
+            <h2 class="font-bold text-slate-800 text-base sm:text-lg flex items-center gap-2 pt-1">
                 <i class="fa-solid fa-bus-simple text-amber-500"></i>
                 自宅（船橋）〜 羽田空港 アクセス ＆ お盆混雑対策
             </h2>
