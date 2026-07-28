@@ -203,30 +203,47 @@
             </div>
         </div>
 
-        <!-- Weather & Tide Animated Live Card -->
-        <div class="bg-gradient-to-r from-sky-500 via-ocean-600 to-teal-500 rounded-xl p-3.5 text-white shadow-md flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 reveal-on-scroll">
-            <div class="flex items-center gap-3">
-                <div class="w-11 h-11 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-amber-300 text-2xl shrink-0">
-                    <i class="fa-solid fa-sun animate-spin-slow"></i>
+        <!-- Weather Forecast Live Card -->
+        <div class="bg-gradient-to-r from-sky-500 via-ocean-600 to-teal-500 rounded-xl p-3.5 text-white shadow-md reveal-on-scroll">
+            <div class="flex items-center gap-2 mb-2.5">
+                <div class="w-9 h-9 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-amber-300 text-lg shrink-0">
+                    <i class="fa-solid fa-cloud-sun"></i>
                 </div>
                 <div>
-                    <div class="flex items-center gap-2">
-                        <span class="font-black text-sm sm:text-base">宮古島 8月天候＆マリンコンディション</span>
-                        <span class="bg-amber-400 text-slate-900 text-[10px] font-bold px-2 py-0.5 rounded-full">晴れ・快晴</span>
-                    </div>
-                    <p class="text-xs text-sky-100 mt-0.5">平均気温 31°C / 水温 29°C / 紫外線(UV): 極めて強い</p>
+                    <span class="font-black text-sm sm:text-base">宮古島 旅行当日の天気予報</span>
+                    <p class="text-[11px] text-sky-100" id="weather-updated">予報を取得中...</p>
                 </div>
             </div>
-            <div class="bg-slate-900/30 backdrop-blur-md border border-white/20 px-3 py-1.5 rounded-lg text-xs flex items-center gap-3 shrink-0 self-stretch sm:self-auto justify-around">
-                <div class="text-center">
-                    <div class="text-[10px] text-sky-200 flex items-center gap-1 justify-center"><i class="fa-solid fa-water text-sky-300 animate-pulse"></i> 満潮 (潮位高)</div>
-                    <div class="font-bold text-amber-300">10:15 / 22:40</div>
+            <div class="grid grid-cols-5 gap-1.5 sm:gap-2">
+                <div id="weather-day-1" class="bg-slate-900/30 backdrop-blur-md border border-white/20 rounded-lg p-1.5 sm:p-2 text-center">
+                    <div class="text-[10px] text-sky-200 font-bold">8/8(土)</div>
+                    <div class="text-lg my-0.5"><i class="fa-solid fa-spinner fa-spin"></i></div>
+                    <div class="text-[10px] text-sky-100">取得中</div>
                 </div>
-                <div class="w-px h-6 bg-white/20"></div>
-                <div class="text-center">
-                    <div class="text-[10px] text-sky-200 flex items-center gap-1 justify-center"><i class="fa-solid fa-umbrella-beach text-amber-300"></i> 干潮 (潮位低)</div>
-                    <div class="font-bold text-sky-200">04:20 / 16:40</div>
+                <div id="weather-day-2" class="bg-slate-900/30 backdrop-blur-md border border-white/20 rounded-lg p-1.5 sm:p-2 text-center">
+                    <div class="text-[10px] text-sky-200 font-bold">8/9(日)</div>
+                    <div class="text-lg my-0.5"><i class="fa-solid fa-spinner fa-spin"></i></div>
+                    <div class="text-[10px] text-sky-100">取得中</div>
                 </div>
+                <div id="weather-day-3" class="bg-slate-900/30 backdrop-blur-md border border-white/20 rounded-lg p-1.5 sm:p-2 text-center">
+                    <div class="text-[10px] text-sky-200 font-bold">8/10(月)</div>
+                    <div class="text-lg my-0.5"><i class="fa-solid fa-spinner fa-spin"></i></div>
+                    <div class="text-[10px] text-sky-100">取得中</div>
+                </div>
+                <div id="weather-day-4" class="bg-slate-900/30 backdrop-blur-md border border-white/20 rounded-lg p-1.5 sm:p-2 text-center">
+                    <div class="text-[10px] text-sky-200 font-bold">8/11(火)</div>
+                    <div class="text-lg my-0.5"><i class="fa-solid fa-spinner fa-spin"></i></div>
+                    <div class="text-[10px] text-sky-100">取得中</div>
+                </div>
+                <div id="weather-day-5" class="bg-slate-900/30 backdrop-blur-md border border-white/20 rounded-lg p-1.5 sm:p-2 text-center">
+                    <div class="text-[10px] text-sky-200 font-bold">8/12(水)</div>
+                    <div class="text-lg my-0.5"><i class="fa-solid fa-spinner fa-spin"></i></div>
+                    <div class="text-[10px] text-sky-100">取得中</div>
+                </div>
+            </div>
+            <div class="mt-2.5 pt-2.5 border-t border-white/20 flex items-center justify-center gap-4 text-[11px]">
+                <div class="flex items-center gap-1.5"><i class="fa-solid fa-water text-sky-300 animate-pulse"></i> 満潮 (目安) <span class="font-bold text-amber-300">10:15 / 22:40</span></div>
+                <div class="flex items-center gap-1.5"><i class="fa-solid fa-umbrella-beach text-amber-300"></i> 干潮 (目安) <span class="font-bold text-sky-200">04:20 / 16:40</span></div>
             </div>
         </div>
 
@@ -870,7 +887,87 @@
             }
         }
 
-        // --- 4. Scroll Reveal Observer ---
+        // --- 4. Weather Forecast (Open-Meteo) ---
+        const WEATHER_DAYS = [
+            { day: 1, date: '2026-08-08' },
+            { day: 2, date: '2026-08-09' },
+            { day: 3, date: '2026-08-10' },
+            { day: 4, date: '2026-08-11' },
+            { day: 5, date: '2026-08-12' }
+        ];
+
+        const WEATHER_CODE_MAP = {
+            0: { icon: 'fa-sun', label: '快晴' },
+            1: { icon: 'fa-sun', label: '晴れ' },
+            2: { icon: 'fa-cloud-sun', label: '晴れ' },
+            3: { icon: 'fa-cloud', label: '曇り' },
+            45: { icon: 'fa-smog', label: '霧' },
+            48: { icon: 'fa-smog', label: '霧' },
+            51: { icon: 'fa-cloud-rain', label: '霧雨' },
+            53: { icon: 'fa-cloud-rain', label: '霧雨' },
+            55: { icon: 'fa-cloud-rain', label: '霧雨' },
+            61: { icon: 'fa-cloud-rain', label: '雨' },
+            63: { icon: 'fa-cloud-rain', label: '雨' },
+            65: { icon: 'fa-cloud-showers-heavy', label: '強い雨' },
+            80: { icon: 'fa-cloud-rain', label: 'にわか雨' },
+            81: { icon: 'fa-cloud-rain', label: 'にわか雨' },
+            82: { icon: 'fa-cloud-showers-heavy', label: '激しい雨' },
+            95: { icon: 'fa-bolt', label: '雷雨' },
+            96: { icon: 'fa-bolt', label: '雷雨' },
+            99: { icon: 'fa-bolt', label: '雷雨' }
+        };
+
+        function showWeatherFallback(day) {
+            const tile = document.getElementById('weather-day-' + day);
+            if (!tile) return;
+            tile.innerHTML = tile.querySelector('.text-\\[10px\\].text-sky-200.font-bold').outerHTML + `
+                <div class="text-lg my-0.5 text-amber-300"><i class="fa-solid fa-sun"></i></div>
+                <div class="text-[10px] text-sky-100">31°C前後<br>(8月平均)</div>`;
+        }
+
+        async function loadWeatherForecast() {
+            const updatedEl = document.getElementById('weather-updated');
+            try {
+                const url = 'https://api.open-meteo.com/v1/forecast?latitude=24.7126&longitude=125.2638'
+                    + '&daily=weathercode,temperature_2m_max,temperature_2m_min,precipitation_probability_max'
+                    + '&timezone=Asia%2FTokyo&start_date=2026-08-08&end_date=2026-08-12';
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('forecast request failed');
+                const data = await res.json();
+                const times = (data.daily && data.daily.time) || [];
+
+                WEATHER_DAYS.forEach(({ day, date }) => {
+                    const idx = times.indexOf(date);
+                    const tile = document.getElementById('weather-day-' + day);
+                    if (!tile) return;
+
+                    if (idx === -1 || data.daily.temperature_2m_max[idx] == null) {
+                        showWeatherFallback(day);
+                        return;
+                    }
+
+                    const code = data.daily.weathercode[idx];
+                    const info = WEATHER_CODE_MAP[code] || { icon: 'fa-cloud-sun', label: '-' };
+                    const max = Math.round(data.daily.temperature_2m_max[idx]);
+                    const min = Math.round(data.daily.temperature_2m_min[idx]);
+                    const pop = data.daily.precipitation_probability_max[idx];
+
+                    const dateLabel = tile.querySelector('.text-\\[10px\\].text-sky-200.font-bold').outerHTML;
+                    tile.innerHTML = dateLabel + `
+                        <div class="text-lg my-0.5 text-amber-300"><i class="fa-solid ${info.icon}"></i></div>
+                        <div class="text-[10px] text-sky-100">${max}° / ${min}°<br>☔${pop}%</div>`;
+                });
+
+                if (updatedEl) updatedEl.textContent = '最終更新: ' + new Date().toLocaleString('ja-JP');
+            } catch (e) {
+                WEATHER_DAYS.forEach(({ day }) => showWeatherFallback(day));
+                if (updatedEl) updatedEl.textContent = '予報を取得できませんでした（8月平均値を表示中）';
+            }
+        }
+
+        loadWeatherForecast();
+
+        // --- 5. Scroll Reveal Observer ---
         document.addEventListener('DOMContentLoaded', () => {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
