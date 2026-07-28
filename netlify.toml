@@ -1,0 +1,5 @@
+# Netlify Configuration File
+# Disable automatic builds and deploys on git push (Closes #4)
+
+[build]
+  ignore = "exit 0"
