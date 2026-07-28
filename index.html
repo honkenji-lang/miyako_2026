@@ -341,7 +341,7 @@
                     <div class="bg-gradient-to-r from-teal-500 to-emerald-600 p-3.5 text-white flex items-center justify-between cursor-pointer" onclick="toggleAccordion('day2')">
                         <div class="flex items-center gap-2.5">
                             <span class="bg-white text-teal-700 text-xs font-black px-2 py-0.5 rounded">Day 2</span>
-                            <span class="font-bold text-sm sm:text-base">8月9日（日） バギー体験・宮古牛バーガー＆オーシャンディナー</span>
+                            <span class="font-bold text-sm sm:text-base">8月9日（日） バギー体験・宮古牛バーガー＆ホテルプールでプカプカ</span>
                         </div>
                         <i class="fa-solid fa-chevron-down text-xs transition-transform" id="icon-day2"></i>
                     </div>
@@ -363,10 +363,13 @@
                                 </div>
                                 <p class="text-slate-500 mt-1">伊良部大橋を渡ってすぐ！宮古牛100%パティを使用した絶品グルメバーガー。</p>
                             </li>
-                            <li class="relative cursor-pointer hover:bg-slate-50 p-1.5 rounded transition" onclick="scrollToMapAndFocus('tunkaraya')">
-                                <div class="absolute -left-[23px] top-1 bg-amber-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[9px]"><i class="fa-solid fa-mug-hot"></i></div>
-                                <div class="font-bold text-slate-800 text-sm">16:30 【おやつ】島cafeとぅんからや（おすすめ候補）</div>
-                                <p class="text-slate-500">太平洋を見渡す絶景高台カフェでゆったりカフェタイム。</p>
+                            <li class="relative cursor-pointer hover:bg-slate-50 p-1.5 rounded transition" onclick="scrollToMapAndFocus('seawood')">
+                                <div class="absolute -left-[23px] top-1 bg-emerald-600 text-white w-4 h-4 rounded-full flex items-center justify-center text-[9px]"><i class="fa-solid fa-water-ladder"></i></div>
+                                <div class="font-bold text-slate-800 text-sm">15:30 - 18:00 ホテルでのんびり。プールでプカプカ。</div>
+                                <div class="flex items-center gap-2 mt-0.5">
+                                    <span class="bg-slate-100 text-slate-600 font-semibold px-1.5 py-0.5 rounded text-[10px]">シーウッドホテル</span>
+                                </div>
+                                <p class="text-slate-500 mt-1">シーウッドホテルのプールでプカプカ浮かんだり、お部屋で夕食まで贅沢にのんびり過ごします。</p>
                             </li>
                             <li class="relative cursor-pointer hover:bg-slate-50 p-1.5 rounded transition" onclick="scrollToMapAndFocus('paina_terrace')">
                                 <div class="absolute -left-[23px] top-1 bg-rose-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[9px]"><i class="fa-solid fa-utensils"></i></div>
@@ -588,11 +591,11 @@
                                 <td class="p-2.5 text-slate-500">平良久貝</td>
                                 <td class="p-2.5 text-center"></td>
                             </tr>
-                            <tr class="hover:bg-sky-50/50 cursor-pointer transition" onclick="scrollToMapAndFocus('tunkaraya')">
+                            <tr class="hover:bg-sky-50/50 cursor-pointer transition" onclick="scrollToMapAndFocus('seawood')">
                                 <td class="p-2.5 font-bold text-teal-600">Day2 憩</td>
-                                <td class="p-2.5 font-bold text-slate-900">島cafeとぅんからや</td>
-                                <td class="p-2.5">カフェ</td>
-                                <td class="p-2.5 text-slate-500">上野新里</td>
+                                <td class="p-2.5 font-bold text-slate-900">シーウッドホテル（プールタイム）</td>
+                                <td class="p-2.5">リゾート・プール</td>
+                                <td class="p-2.5 text-slate-500">来間島</td>
                                 <td class="p-2.5 text-center"></td>
                             </tr>
                             <tr class="hover:bg-sky-50/50 cursor-pointer transition" onclick="scrollToMapAndFocus('paina_terrace')">
@@ -1004,7 +1007,7 @@
         // Day Route Sequences for Polyline Drawing
         const dayRoutes = {
             1: ['airport', 'toyota', 'seawood', 'captain_merian', 'seawood'],
-            2: ['seawood', 'buggy', 'yamburger', 'tunkaraya', 'paina_terrace', 'seawood'],
+            2: ['seawood', 'buggy', 'yamburger', 'seawood', 'paina_terrace', 'seawood'],
             3: ['seawood', 'rakuen_no_kajitsu', 'kanoa_okinawa', 'kakigori_kairi', 'sushito', 'seawood'],
             4: ['seawood', 'ikema_bridge', 'harrys', 'kibi_chaya', 'purushin', 'seawood'],
             5: ['seawood', 'brual', 'toyota', 'airport']
