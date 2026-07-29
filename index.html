@@ -455,6 +455,14 @@
                                 <div class="font-bold text-slate-800 text-sm">10:00 北部ドライブ（西平安名崎・池間大橋）</div>
                                 <p class="text-slate-500">エメラルドグリーンの絶景海道をドライブ。</p>
                             </li>
+                            <li class="relative cursor-pointer hover:bg-slate-50 p-1.5 rounded transition" onclick="scrollToMapAndFocus('yukishio_museum')">
+                                <div class="absolute -left-[23px] top-1 bg-teal-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[9px]"><i class="fa-solid fa-cube"></i></div>
+                                <div class="font-bold text-slate-800 text-sm">11:00 雪塩ミュージアム見学</div>
+                                <div class="flex items-center gap-2 mt-0.5">
+                                    <span class="bg-slate-100 text-slate-600 font-semibold px-1.5 py-0.5 rounded text-[10px]">狩俣地区</span>
+                                </div>
+                                <p class="text-slate-500 mt-1">雪塩の製造工程を無料見学。雪塩ソフトクリームや試食コーナーも楽しめる。</p>
+                            </li>
                             <li class="relative cursor-pointer hover:bg-slate-50 p-1.5 rounded transition" onclick="scrollToMapAndFocus('harrys')">
                                 <div class="absolute -left-[23px] top-1 bg-rose-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[9px]"><i class="fa-solid fa-utensils"></i></div>
                                 <div class="font-bold text-slate-800 text-sm">12:00 【昼食】HARRY'S PIER SHRIMP TRUCK</div>
@@ -465,7 +473,7 @@
                             </li>
                             <li class="relative cursor-pointer hover:bg-slate-50 p-1.5 rounded transition" onclick="scrollToMapAndFocus('kibi_chaya')">
                                 <div class="absolute -left-[23px] top-1 bg-amber-500 text-white w-4 h-4 rounded-full flex items-center justify-center text-[9px]"><i class="fa-solid fa-cookie"></i></div>
-                                <div class="font-bold text-slate-800 text-sm">15:00 【おやつ】宮古きび茶屋 さとうきび甘味処</div>
+                                <div class="font-bold text-slate-800 text-sm">13:00 【おやつ】宮古きび茶屋 さとうきび甘味処</div>
                                 <div class="flex items-center gap-2 mt-0.5">
                                     <span class="bg-slate-100 text-slate-600 font-semibold px-1.5 py-0.5 rounded text-[10px]">狩俣地区</span>
                                 </div>
@@ -633,6 +641,13 @@
                                 <td class="p-2.5">寿司</td>
                                 <td class="p-2.5 text-slate-500">平良下里</td>
                                 <td class="p-2.5 text-center"><span class="bg-emerald-100 text-emerald-700 px-2 py-0.5 rounded font-bold text-[10px]">予約済</span></td>
+                            </tr>
+                            <tr class="hover:bg-sky-50/50 cursor-pointer transition" onclick="scrollToMapAndFocus('yukishio_museum')">
+                                <td class="p-2.5 font-bold text-amber-600">Day4 観</td>
+                                <td class="p-2.5 font-bold text-slate-900">雪塩ミュージアム</td>
+                                <td class="p-2.5">製塩所見学</td>
+                                <td class="p-2.5 text-slate-500">狩俣地区</td>
+                                <td class="p-2.5 text-center"></td>
                             </tr>
                             <tr class="hover:bg-sky-50/50 cursor-pointer transition" onclick="scrollToMapAndFocus('harrys')">
                                 <td class="p-2.5 font-bold text-amber-600">Day4 昼</td>
@@ -999,6 +1014,7 @@
             'kakigori_kairi': { name: "果き氷 海莉", lat: 24.7242, lng: 125.2632, color: "#f59e0b", day: [3], desc: "Day3 おやつ / 来間島かき氷" },
             'sushito': { name: "鮨人", lat: 24.8012, lng: 125.2810, color: "#f43f5e", day: [3], desc: "Day3 夕食 / 寿司（平良下里・予約済）" },
             'ikema_bridge': { name: "西平安名崎・池間大橋", lat: 24.9282, lng: 125.2485, color: "#0ea5e9", day: [4], desc: "Day4 ドライブ景勝地" },
+            'yukishio_museum': { name: "雪塩ミュージアム", lat: 24.9022, lng: 125.2682, color: "#14b8a6", day: [4], desc: "Day4 11:00〜 / 製塩所見学（狩俣）" },
             'harrys': { name: "HARRY'S SHRIMP TRUCK", lat: 24.9215, lng: 125.2612, color: "#f43f5e", day: [4], desc: "Day4 昼食 / ガーリックシュリンプ" },
             'kibi_chaya': { name: "宮古きび茶屋", lat: 24.8985, lng: 125.2855, color: "#f59e0b", day: [4], desc: "Day4 おやつ / 狩俣さとうきびスイーツ" },
             'purushin': { name: "にんにく焼肉 プルシン", lat: 24.8075, lng: 125.2785, color: "#f43f5e", day: [4], desc: "Day4 夕食 / 焼肉（予約済）" },
@@ -1010,7 +1026,7 @@
             1: ['airport', 'toyota', 'seawood', 'captain_merian', 'seawood'],
             2: ['seawood', 'buggy', 'yamburger', 'seawood', 'paina_terrace', 'seawood'],
             3: ['seawood', 'rakuen_no_kajitsu', 'kanoa_okinawa', 'kakigori_kairi', 'sushito', 'seawood'],
-            4: ['seawood', 'ikema_bridge', 'harrys', 'kibi_chaya', 'purushin', 'seawood'],
+            4: ['seawood', 'ikema_bridge', 'yukishio_museum', 'harrys', 'kibi_chaya', 'purushin', 'seawood'],
             5: ['seawood', 'brual', 'toyota', 'airport']
         };
 
